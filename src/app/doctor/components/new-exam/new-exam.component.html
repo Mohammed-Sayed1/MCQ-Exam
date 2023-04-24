@@ -1,0 +1,93 @@
+<div class="new-exam">
+  <mat-horizontal-stepper linear #stepper>
+    <mat-step label="اسم المادة">
+      <div class="AddSubject">
+        <div>اسم المادة :</div>
+        <mat-form-field appearance="fill" color="warn">
+          <mat-label>اسم المادة</mat-label>
+          <input matInput type="text" />
+        </mat-form-field>
+        <button color="warn" mat-raised-button matStepperNext>ابدأ</button>
+      </div>
+    </mat-step>
+    <mat-step label="اسئلة">
+      <div class="question">
+        <form>
+          <mat-form-field appearance="outline" color="warn" class="queiz">
+            <mat-label>السؤال</mat-label>
+            <input matInput type="text" />
+          </mat-form-field>
+
+          <div class="row">
+            <div class="col-md-6 col-sm-12">
+              <mat-radio-button value="answer1" color="warn"></mat-radio-button>
+              <mat-form-field color="warn">
+                <mat-label>أجابة A</mat-label>
+                <input matInput type="text" />
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+              <mat-radio-button value="answer2" color="warn"></mat-radio-button>
+              <mat-form-field color="warn">
+                <mat-label>أجابة B</mat-label>
+                <input matInput type="text" />
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+              <mat-radio-button value="answer3" color="warn"></mat-radio-button>
+              <mat-form-field color="warn">
+                <mat-label>أجابة C</mat-label>
+                <input matInput type="text" />
+              </mat-form-field>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+              <mat-radio-button value="answer4" color="warn"></mat-radio-button>
+              <mat-form-field color="warn">
+                <mat-label>أجابة D</mat-label>
+                <input matInput type="text" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="questBtn">
+            <div>
+              <button mat-raised-button class="btn btn-success" matStepperNext>
+                عرض أو إنتهاء
+              </button>
+              <button mat-raised-button color="warn" matStepperPrevious>
+                الغاء
+              </button>
+            </div>
+            <div>
+              <button mat-raised-button color="accent">حذف</button>
+              <button mat-raised-button color="primary">حفظ</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </mat-step>
+    <mat-step label="عرض الاختبار">
+      <div class="examBox">
+        <div class="examhead text-center"><h2>اختبار اسم المادة</h2></div>
+        <div class="quizBox">
+          <strong><span class="text-danger">سؤال 1</span> . السؤال</strong>
+          <div class="row" dir="rtl">
+            <div class="col-sm-12">A. الإجابة 1</div>
+            <div class="col-sm-12">B. الإجابة 2</div>
+            <div class="col-sm-12">C. الإجابة 3</div>
+            <div class="col-sm-12">D. الإجابة 4</div>
+            <div class="col-sm-12">
+              <span class="text-success">الاجابة الصحيحة. correct answer</span>
+            </div>
+          </div>
+          <div class="text-start">
+            <button mat-raised-button class="btn btn-danger">حذف</button>
+          </div>
+          <hr />
+        </div>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
