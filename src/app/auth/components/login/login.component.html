@@ -2,14 +2,14 @@
   <div class="text-center loginhead">
     <h2>Login</h2>
   </div>
-  <form>
+  <form [formGroup]="loginForm">
     <div class="row">
       <div class="col-sm-12 mb-3">
-        <mat-radio-group>
-          <mat-radio-button value="students" class="w-25" color="warn"
+        <mat-radio-group (change)="getRole($event)" formControlName="type">
+          <mat-radio-button value="students" class="w-50" color="warn"
             >طالب</mat-radio-button
           >
-          <mat-radio-button value="doctor" class="w-25" color="warn"
+          <mat-radio-button value="doctor" class="w-50" color="warn"
             >دكتور</mat-radio-button
           >
         </mat-radio-group>
@@ -17,20 +17,27 @@
       <div class="col-md-6 col-sm-12">
         <mat-form-field appearance="outline" color="warn">
           <mat-label>الايميل</mat-label>
-          <input matInput type="email" />
+          <input matInput type="email" formControlName="email" />
         </mat-form-field>
       </div>
 
       <div class="col-md-6 col-sm-12">
         <mat-form-field appearance="outline" color="warn">
           <mat-label>كلمة المرور</mat-label>
-          <input matInput type="password" />
+          <input matInput type="password" formControlName="password" />
         </mat-form-field>
       </div>
     </div>
     <div class="text-right loginfoot">
-      <a color="primary">انشاء حساب ؟</a>
-      <button mat-raised-button color="warn">تسجيل الدخول</button>
+      <a routerLink="/register" color="primary">انشاء حساب ؟</a>
+      <button
+        mat-raised-button
+        color="warn"
+        [disabled]="loginForm.invalid"
+        (click)="submit()"
+      >
+        تسجيل الدخول
+      </button>
     </div>
   </form>
 </div>
