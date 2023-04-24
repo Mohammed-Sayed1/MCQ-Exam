@@ -64,6 +64,7 @@ export class LoginComponent implements OnInit {
         role: this.type,
       };
       this.service.login(model).subscribe((res) => {
+        this.service.user.next(res);
         this.toastr.success('تم  تسجيل الدخول بنجاح', '', {
           disableTimeOut: false,
           titleClass: 'toastr_title',

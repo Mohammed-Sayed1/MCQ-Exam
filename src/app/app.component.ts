@@ -1,10 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './auth/services/auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'MCQProject';
+  constructor(private authService: AuthService) {}
+
+  ngOnInit(): void {
+    this.getUserData();
+  }
+
+  getUserData() {
+    this.authService.getRole().subscribe((res) => {
+      this.authService.user.next(res);
+    });
+  }
 }

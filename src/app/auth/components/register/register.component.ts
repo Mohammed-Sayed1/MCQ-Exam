@@ -40,12 +40,6 @@ export class RegisterComponent implements OnInit {
   }
 
   submit() {
-    const model = {
-      username: this.userForm.value.username,
-      email: this.userForm.value.email,
-      password: this.userForm.value.password,
-    };
-
     let index = this.students.findIndex(
       (item) => item.email == this.userForm.value.email
     );
@@ -58,6 +52,12 @@ export class RegisterComponent implements OnInit {
         closeButton: true,
       });
     } else {
+      const model = {
+        username: this.userForm.value.username,
+        email: this.userForm.value.email,
+        password: this.userForm.value.password,
+      };
+
       this.service.createUser(model).subscribe((res) => {
         this.toastr.success('تم إنشاء الحساب بنجاح', '', {
           disableTimeOut: false,
@@ -66,7 +66,7 @@ export class RegisterComponent implements OnInit {
           timeOut: 5000,
           closeButton: true,
         });
-        this.router.navigate(['/subjects']);
+        this.router.navigate(['/login']);
       });
     }
   }
