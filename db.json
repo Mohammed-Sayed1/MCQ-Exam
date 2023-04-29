@@ -15,8 +15,48 @@
       "id": 1
     }
   ],
+  "subjects": [
+    {
+      "name": "Math",
+      "questions": [
+        {
+          "question": "2*2",
+          "answer1": "1",
+          "answer2": "2",
+          "answer3": "3",
+          "answer4": "4",
+          "correctAnswer": "4"
+        },
+        {
+          "question": "3*3",
+          "answer1": "3",
+          "answer2": "6",
+          "answer3": "9",
+          "answer4": "12",
+          "correctAnswer": "9"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "English",
+      "questions": [
+        {
+          "question": "aaa",
+          "answer1": "aaa",
+          "answer2": "bbb",
+          "answer3": "ccc",
+          "answer4": "ddd",
+          "correctAnswer": "aaa"
+        }
+      ],
+      "id": 2
+    }
+  ],
   "login": [
     {
+      "username": "admin",
+      "role": "doctor",
       "id": 1
     }
   ]

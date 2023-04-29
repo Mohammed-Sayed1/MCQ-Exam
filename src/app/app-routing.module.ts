@@ -8,6 +8,7 @@ import { SubjectsComponent } from './doctor/components/subjects/subjects.compone
 import { NewExamComponent } from './doctor/components/new-exam/new-exam.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/register', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'exam/:id', component: ExamComponent },
