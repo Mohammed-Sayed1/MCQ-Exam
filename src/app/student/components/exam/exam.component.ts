@@ -13,6 +13,8 @@ export class ExamComponent implements OnInit {
   id: any;
   subject: any;
   user: any;
+  total: number = 0;
+  showResult: boolean = false;
   constructor(
     private route: ActivatedRoute,
     private service: DoctorService,
@@ -37,6 +39,13 @@ export class ExamComponent implements OnInit {
     });
   }
 
+  getAnswer(event: any) {
+    let value = event.value;
+    let questionIndex = event.source.name;
+    this.subject.questions[questionIndex].studentAnswer = value;
+    console.log(this.subject.questions);
+  }
+
   deleteQ(index: number) {
     this.subject.questions.splice(index, 1);
     const model = {
@@ -47,5 +56,19 @@ export class ExamComponent implements OnInit {
     this.service.updateSubject(model, this.id).subscribe((res) => {
       this.toastr.success('تم حذف السؤال بنجاح');
     });
+  }
+
+  getResult() {
+    this.total = 0;
+    for (let x in this.subject.questions) {
+      if (
+        this.subject.questions[x].studentAnswer ==
+        this.subject.questions[x].correctAnswer
+      ) {
+        this.total++;
+      }
+    }
+    this.showResult = true;
+    console.log(this.total);
   }
 }
