@@ -8,14 +8,14 @@ import { SubjectsComponent } from './doctor/components/subjects/subjects.compone
 import { NewExamComponent } from './doctor/components/new-exam/new-exam.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/register', pathMatch: 'full' },
+  // { path: '', redirectTo: '/register', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'exam/:id', component: ExamComponent },
   { path: 'students', component: StudentsComponent },
   { path: 'subjects', component: SubjectsComponent },
   { path: 'new-exam', component: NewExamComponent },
-  { path: '**', redirectTo: '/exam', pathMatch: 'full' },
+  { path: '**', redirectTo: 'exam', pathMatch: 'full' },
 ];
 
 @NgModule({

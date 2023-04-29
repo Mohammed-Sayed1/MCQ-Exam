@@ -19,6 +19,10 @@ export class DoctorService {
     return this.http.get(`http://localhost:3000/subjects`);
   }
 
+  getSubject(id: number) {
+    return this.http.get(`http://localhost:3000/subjects/${id}`);
+  }
+
   deleteSubject(id: number) {
     return this.http.delete(`http://localhost:3000/subjects/${id}`);
   }

@@ -1,35 +1,64 @@
-<p>exam works!</p>
 <div class="examBox">
-  <div class="examhead text-center"><h2>اختبار subject name</h2></div>
-  <div class="quizBox">
-    <strong><span class="text-danger">سؤال 1</span> . questions</strong>
+  <div class="examhead text-center">
+    <h2>اختبار {{ subject.name }}</h2>
+  </div>
+  <div
+    class="quizBox"
+    *ngFor="let item of subject.questions; let index = index"
+  >
+    <strong
+      ><span class="text-danger">سؤال {{ index + 1 }}</span> .
+      {{ item.question }}</strong
+    >
     <div class="row mt-3">
       <div class="col-md-6 col-sm-12">
-        <mat-radio-button name="" value="" color="warn"></mat-radio-button>
-        <label>A. answer1</label>
+        <mat-radio-button
+          name=""
+          value="answer1"
+          color="warn"
+          *ngIf="user?.role == 'students'"
+        ></mat-radio-button>
+        <label>أ. {{ item.answer1 }}</label>
       </div>
 
       <div class="col-md-6 col-sm-12">
-        <mat-radio-button name="" value="" color="warn"></mat-radio-button>
-        <label>B. answer2</label>
+        <mat-radio-button
+          name=""
+          value="answer2"
+          color="warn"
+          *ngIf="user?.role == 'students'"
+        ></mat-radio-button>
+        <label>ب. {{ item.answer2 }}</label>
       </div>
 
       <div class="col-md-6 col-sm-12">
-        <mat-radio-button name="" value="" color="warn"></mat-radio-button>
-        <label>C. answer3</label>
+        <mat-radio-button
+          name=""
+          value="answer3"
+          color="warn"
+          *ngIf="user?.role == 'students'"
+        ></mat-radio-button>
+        <label>ج. {{ item.answer3 }}</label>
       </div>
 
       <div class="col-md-6 col-sm-12">
-        <mat-radio-button name="" value="" color="warn"></mat-radio-button>
-        <label>D. answer4</label>
+        <mat-radio-button
+          name=""
+          value="answer4"
+          color="warn"
+          *ngIf="user?.role == 'students'"
+        ></mat-radio-button>
+        <label>د. {{ item.answer4 }}</label>
       </div>
     </div>
-    <div class="text-start">
-      <button mat-raised-button class="btn btn-danger">حذف</button>
+    <div class="text-start" *ngIf="user?.role == 'doctor'">
+      <button mat-raised-button class="btn btn-danger" (click)="deleteQ(index)">
+        حذف
+      </button>
     </div>
-    <hr />
+    <hr *ngIf="user?.role == 'students'" />
   </div>
-  <div class="text-center">
+  <div class="text-center" *ngIf="user?.role == 'students'">
     <span class="fs-4 text-success"> total</span>
     <button class="btn btn-success px-5 fs-5">النتيجة</button>
   </div>

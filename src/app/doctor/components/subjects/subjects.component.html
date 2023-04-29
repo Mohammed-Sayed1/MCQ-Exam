@@ -3,6 +3,7 @@
     <div
       class="col-md-3 col-sm-12"
       *ngFor="let item of subjects; let index = index"
+      routerLink="/exam/{{ item.id }}"
     >
       <div class="namesubject">
         <div>{{ item.name }}</div>
