@@ -14,4 +14,12 @@ export class DoctorService {
   updateSubject(model: any, id: number) {
     return this.http.put(`http://localhost:3000/subjects/${id}`, model);
   }
+
+  getAllSubjects() {
+    return this.http.get(`http://localhost:3000/subjects`);
+  }
+
+  deleteSubject(id: number) {
+    return this.http.delete(`http://localhost:3000/subjects/${id}`);
+  }
 }

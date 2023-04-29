@@ -37,20 +37,6 @@
         }
       ],
       "id": 1
-    },
-    {
-      "name": "English",
-      "questions": [
-        {
-          "question": "aaa",
-          "answer1": "aaa",
-          "answer2": "bbb",
-          "answer3": "ccc",
-          "answer4": "ddd",
-          "correctAnswer": "aaa"
-        }
-      ],
-      "id": 2
     }
   ],
   "login": [
