@@ -15,6 +15,8 @@ export class ExamComponent implements OnInit {
   user: any;
   total: number = 0;
   showResult: boolean = false;
+  studentInfo: any;
+  userSubjects: any[] = [];
   constructor(
     private route: ActivatedRoute,
     private service: DoctorService,
@@ -23,7 +25,7 @@ export class ExamComponent implements OnInit {
   ) {
     this.id = this.route.snapshot.paramMap.get('id');
     this.getSubject();
-    this.getUserInfo();
+    this.getLogedinUser();
   }
   ngOnInit(): void {}
 
@@ -33,9 +35,17 @@ export class ExamComponent implements OnInit {
     });
   }
 
-  getUserInfo() {
+  getLogedinUser() {
     this.auth.getRole().subscribe((res) => {
       this.user = res;
+      this.getUserData();
+    });
+  }
+
+  getUserData() {
+    this.auth.getStudent(this.user.userId).subscribe((res: any) => {
+      this.studentInfo = res;
+      this.userSubjects = res?.subjects ? res?.subjects : [];
     });
   }
 
@@ -43,7 +53,6 @@ export class ExamComponent implements OnInit {
     let value = event.value;
     let questionIndex = event.source.name;
     this.subject.questions[questionIndex].studentAnswer = value;
-    console.log(this.subject.questions);
   }
 
   deleteQ(index: number) {
@@ -69,6 +78,20 @@ export class ExamComponent implements OnInit {
       }
     }
     this.showResult = true;
-    console.log(this.total);
+
+    this.userSubjects.push({
+      name: this.subject.name,
+      id: this.id,
+      degree: this.total,
+    });
+    const model = {
+      username: this.studentInfo.username,
+      email: this.studentInfo.email,
+      password: this.studentInfo.password,
+      subjects: this.userSubjects,
+    };
+    this.auth.updateStudent(this.user.userId, model).subscribe((res) => {
+      this.toastr.success('تم تسجيل النتيجة بنجاح');
+    });
   }
 }

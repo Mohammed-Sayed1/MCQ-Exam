@@ -22,6 +22,14 @@ export class AuthService {
     return this.http.get(`http://localhost:3000/${type}`);
   }
 
+  getStudent(id: number) {
+    return this.http.get(`http://localhost:3000/students/${id}`);
+  }
+
+  updateStudent(id: number, model: any) {
+    return this.http.put(`http://localhost:3000/students/${id}`, model);
+  }
+
   getRole() {
     return this.http.get(`http://localhost:3000/login/1`);
   }

@@ -1,10 +1,23 @@
 {
   "students": [
     {
-      "username": "test",
-      "email": "test@test.com",
+      "username": "student1",
+      "email": "student1@student.com",
       "password": "123",
+      "subjects": [
+        {
+          "name": "Math",
+          "id": "1",
+          "degree": 3
+        }
+      ],
       "id": 1
+    },
+    {
+      "username": "student2",
+      "email": "student2@student.com",
+      "password": "123",
+      "id": 2
     }
   ],
   "doctor": [
@@ -52,13 +65,14 @@
           "correctAnswer": "25"
         }
       ],
-      "id": 2
+      "id": 1
     }
   ],
   "login": [
     {
-      "username": "test",
+      "username": "student1",
       "role": "students",
+      "userId": 1,
       "id": 1
     }
   ]

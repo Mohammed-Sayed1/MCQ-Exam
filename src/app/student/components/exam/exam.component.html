@@ -16,7 +16,7 @@
           name="{{ index }}"
           value="{{ item.answer1 }}"
           color="warn"
-          *ngIf="user?.role == 'students'"
+          *ngIf="user?.role == 'students' && !showResult"
           (change)="getAnswer($event)"
         ></mat-radio-button>
         <label>أ. {{ item.answer1 }}</label>
@@ -27,7 +27,7 @@
           name="{{ index }}"
           value="{{ item.answer2 }}"
           color="warn"
-          *ngIf="user?.role == 'students'"
+          *ngIf="user?.role == 'students' && !showResult"
           (change)="getAnswer($event)"
         ></mat-radio-button>
         <label>ب. {{ item.answer2 }}</label>
@@ -38,7 +38,7 @@
           name="{{ index }}"
           value="{{ item.answer3 }}"
           color="warn"
-          *ngIf="user?.role == 'students'"
+          *ngIf="user?.role == 'students' && !showResult"
           (change)="getAnswer($event)"
         ></mat-radio-button>
         <label>ج. {{ item.answer3 }}</label>
@@ -49,7 +49,7 @@
           name="{{ index }}"
           value="{{ item.answer4 }}"
           color="warn"
-          *ngIf="user?.role == 'students'"
+          *ngIf="user?.role == 'students' && !showResult"
           (change)="getAnswer($event)"
         ></mat-radio-button>
         <label>د. {{ item.answer4 }}</label>
