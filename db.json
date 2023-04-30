@@ -6,9 +6,9 @@
       "password": "123",
       "subjects": [
         {
-          "name": "Math",
+          "name": "اللغة العربية",
           "id": "1",
-          "degree": 3
+          "degree": 0
         }
       ],
       "id": 1
@@ -18,6 +18,24 @@
       "email": "student2@student.com",
       "password": "123",
       "id": 2
+    },
+    {
+      "username": "student3",
+      "email": "student3@student.com",
+      "password": "123",
+      "id": 3
+    },
+    {
+      "username": "student4",
+      "email": "student4@student.com",
+      "password": "123",
+      "id": 4
+    },
+    {
+      "username": "student5",
+      "email": "student5@student.com",
+      "password": "123",
+      "id": 5
     }
   ],
   "doctor": [
@@ -30,39 +48,15 @@
   ],
   "subjects": [
     {
-      "name": "Math",
+      "name": "اللغة العربية",
       "questions": [
         {
-          "question": "1*1",
-          "answer1": "1",
-          "answer2": "2",
-          "answer3": "3",
-          "answer4": "4",
-          "correctAnswer": "1"
-        },
-        {
-          "question": "3*3",
-          "answer1": "2",
-          "answer2": "5",
-          "answer3": "7",
-          "answer4": "9",
-          "correctAnswer": "9"
-        },
-        {
-          "question": "4*4",
-          "answer1": "4",
-          "answer2": "8",
-          "answer3": "12",
-          "answer4": "16",
-          "correctAnswer": "16"
-        },
-        {
-          "question": "5*5",
-          "answer1": "5",
-          "answer2": "25",
-          "answer3": "15",
-          "answer4": "20",
-          "correctAnswer": "25"
+          "question": "مفرد كلمة \"رجال\"",
+          "answer1": "راجل",
+          "answer2": "رجل",
+          "answer3": "إنسان",
+          "answer4": "بني أدم",
+          "correctAnswer": "رجل"
         }
       ],
       "id": 1
