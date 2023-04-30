@@ -17,6 +17,7 @@ export class ExamComponent implements OnInit {
   showResult: boolean = false;
   studentInfo: any;
   userSubjects: any[] = [];
+  validExam: boolean = true;
   constructor(
     private route: ActivatedRoute,
     private service: DoctorService,
@@ -46,6 +47,7 @@ export class ExamComponent implements OnInit {
     this.auth.getStudent(this.user.userId).subscribe((res: any) => {
       this.studentInfo = res;
       this.userSubjects = res?.subjects ? res?.subjects : [];
+      this.checkValidExam();
     });
   }
 
@@ -53,6 +55,16 @@ export class ExamComponent implements OnInit {
     let value = event.value;
     let questionIndex = event.source.name;
     this.subject.questions[questionIndex].studentAnswer = value;
+  }
+
+  checkValidExam() {
+    for (let x in this.userSubjects) {
+      if (this.userSubjects[x].id == this.id) {
+        this.total = this.userSubjects[x].degree;
+        this.validExam = false;
+        this.toastr.warning('لقد أنهيت هذا الإختبار مسبقاً');
+      }
+    }
   }
 
   deleteQ(index: number) {

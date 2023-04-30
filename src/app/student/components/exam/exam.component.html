@@ -16,7 +16,7 @@
           name="{{ index }}"
           value="{{ item.answer1 }}"
           color="warn"
-          *ngIf="user?.role == 'students' && !showResult"
+          *ngIf="user?.role == 'students' && !showResult && validExam"
           (change)="getAnswer($event)"
         ></mat-radio-button>
         <label>أ. {{ item.answer1 }}</label>
@@ -27,7 +27,7 @@
           name="{{ index }}"
           value="{{ item.answer2 }}"
           color="warn"
-          *ngIf="user?.role == 'students' && !showResult"
+          *ngIf="user?.role == 'students' && !showResult && validExam"
           (change)="getAnswer($event)"
         ></mat-radio-button>
         <label>ب. {{ item.answer2 }}</label>
@@ -38,7 +38,7 @@
           name="{{ index }}"
           value="{{ item.answer3 }}"
           color="warn"
-          *ngIf="user?.role == 'students' && !showResult"
+          *ngIf="user?.role == 'students' && !showResult && validExam"
           (change)="getAnswer($event)"
         ></mat-radio-button>
         <label>ج. {{ item.answer3 }}</label>
@@ -49,7 +49,7 @@
           name="{{ index }}"
           value="{{ item.answer4 }}"
           color="warn"
-          *ngIf="user?.role == 'students' && !showResult"
+          *ngIf="user?.role == 'students' && !showResult && validExam"
           (change)="getAnswer($event)"
         ></mat-radio-button>
         <label>د. {{ item.answer4 }}</label>
@@ -60,14 +60,14 @@
         حذف
       </button>
     </div>
-    <hr *ngIf="user?.role == 'students'" />
+    <hr />
   </div>
   <div class="text-center" *ngIf="user?.role == 'students'">
-    <span *ngIf="showResult" class="fs-4 text-success"
+    <span *ngIf="showResult || !validExam" class="fs-4 text-success"
       >{{ subject?.questions.length }} / {{ total }}</span
     >
     <button
-      *ngIf="!showResult"
+      *ngIf="!showResult && validExam"
       class="btn btn-success px-5 fs-5"
       (click)="getResult()"
     >

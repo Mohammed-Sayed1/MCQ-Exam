@@ -70,8 +70,8 @@
   ],
   "login": [
     {
-      "username": "student1",
-      "role": "students",
+      "username": "admin",
+      "role": "doctor",
       "userId": 1,
       "id": 1
     }
